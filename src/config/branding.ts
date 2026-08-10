@@ -7,9 +7,9 @@
 
 export const BRAND = {
   /** Display name (Arabic) */
-  nameAr: "تطبيق اسواق تجريبي",
+  nameAr: "تطبيق أسواق تجريبي",
   /** Display name (English) */
-  nameEn: "Aswaq Tajribi",
+  nameEn: "TASWEEQ APP DEMO",
   /** Short tagline */
   taglineAr: "توصيل بقالة وأغذية طازجة — قالب تجريبي جاهز للتخصيص",
   taglineEn: "Fresh grocery delivery — demo template ready to customize",
@@ -17,6 +17,8 @@ export const BRAND = {
   appId: "com.aswaq.tajribi",
   /** Repo / npm-style slug */
   slug: "aswaq-tajribi",
+  /** Fallback image for missing product photos */
+  placeholderImage: "/placeholder.png",
 } as const;
 
 /** Replace every [[CLIENT_*]] value before go-live for a new client */

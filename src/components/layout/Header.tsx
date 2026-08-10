@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+﻿import { useState, useEffect, useRef } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Search, ShoppingCart, ChevronLeft, User, MapPin, LogOut, Menu, X, Globe } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
@@ -247,7 +247,7 @@ const Header = () => {
                     className="flex items-center gap-3 p-4 md:p-3 hover:bg-muted transition-colors border-b md:border-b-0"
                     onClick={() => { setSearchOpen(false); setSearchQuery(""); }}
                   >
-                    <img src={p.image || "/placeholder.svg"} alt={p.name} className="w-14 h-14 md:w-10 md:h-10 rounded-lg object-cover" />
+                    <img src={p.image || "/placeholder.png"} alt={p.name} className="w-14 h-14 md:w-10 md:h-10 rounded-lg object-cover" />
                     <div className="flex-1 min-w-0">
                       <p className="text-base md:text-sm font-medium truncate">{lang === "ar" ? p.name : (p.name_en || p.name)}</p>
                       <p className="text-sm md:text-xs text-primary font-bold">{p.price} {t("ر.س", "SAR")}</p>

@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Loader2, ShieldCheck } from "lucide-react";
 import { toast } from "sonner";
 import logo from "@/assets/logo.png";
+import { DemoCredentialsCard } from "@/components/DemoCredentialsCard";
 
 const AdminLoginPage = () => {
   const navigate = useNavigate();
@@ -91,6 +92,13 @@ const AdminLoginPage = () => {
               {loading ? "جاري الدخول..." : "تسجيل الدخول"}
             </Button>
           </form>
+          <DemoCredentialsCard
+            account="admin"
+            onFill={(e, p) => {
+              setEmail(e);
+              setPassword(p);
+            }}
+          />
         </CardContent>
       </Card>
     </div>

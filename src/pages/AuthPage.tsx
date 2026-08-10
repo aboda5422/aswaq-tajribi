@@ -12,6 +12,8 @@ import Footer from "@/components/layout/Footer";
 import { useRecaptcha } from "@/hooks/useRecaptcha";
 import { lovable } from "@/integrations/lovable/index";
 import { Capacitor } from "@capacitor/core";
+import { DemoCredentialsCard } from "@/components/DemoCredentialsCard";
+import logoIcon from "@/assets/logo-icon.png";
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -227,14 +229,14 @@ const AuthPage = () => {
         <div className="w-full max-w-md px-4">
           <div className="bg-card rounded-2xl border p-6 shadow-sm">
             <div className="text-center mb-6">
-              <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center mx-auto mb-3">
-                <span className="text-primary-foreground font-heading font-extrabold text-lg">بم</span>
+              <div className="w-14 h-14 rounded-xl bg-white border flex items-center justify-center mx-auto mb-3 overflow-hidden p-1">
+                <img src={logoIcon} alt="" className="w-full h-full object-contain" />
               </div>
               <h1 className="font-heading font-bold text-xl">
                 {isLogin ? "تسجيل الدخول" : "إنشاء حساب جديد"}
               </h1>
               <p className="text-muted-foreground text-sm mt-1">
-                {isLogin ? "مرحباً بعودتك إلى تطبيق اسواق تجريبي" : "سجّل الآن واطلب بقالتك بسهولة"}
+                {isLogin ? "مرحباً بعودتك إلى تطبيق أسواق تجريبي" : "سجّل الآن واطلب بقالتك بسهولة"}
               </p>
             </div>
 
@@ -289,6 +291,16 @@ const AuthPage = () => {
                 {loading ? "جاري المعالجة..." : isLogin ? "تسجيل الدخول" : "إنشاء حساب"}
               </Button>
             </form>
+
+            {isLogin && (
+              <DemoCredentialsCard
+                account="customer"
+                onFill={(e, p) => {
+                  setEmail(e);
+                  setPassword(p);
+                }}
+              />
+            )}
 
             <div className="my-4 flex items-center gap-3">
               <span className="h-px bg-border flex-1" />

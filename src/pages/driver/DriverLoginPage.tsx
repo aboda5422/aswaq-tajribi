@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Mail, Lock, Eye, EyeOff, Truck } from "lucide-react";
+import { Mail, Lock, Eye, EyeOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { DemoCredentialsCard } from "@/components/DemoCredentialsCard";
+import logoIcon from "@/assets/logo-icon.png";
 
 const DriverLoginPage = () => {
   const [email, setEmail] = useState("");
@@ -49,11 +51,11 @@ const DriverLoginPage = () => {
       <div className="w-full max-w-sm">
         <div className="bg-card rounded-2xl border p-6 shadow-sm">
           <div className="text-center mb-6">
-            <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center mx-auto mb-3">
-              <Truck className="h-8 w-8 text-primary-foreground" />
+            <div className="w-16 h-16 rounded-2xl bg-white border flex items-center justify-center mx-auto mb-3 overflow-hidden p-1">
+              <img src={logoIcon} alt="" className="w-full h-full object-contain" />
             </div>
             <h1 className="font-heading font-bold text-xl">واجهة المندوب</h1>
-            <p className="text-muted-foreground text-sm mt-1">تطبيق اسواق تجريبي</p>
+            <p className="text-muted-foreground text-sm mt-1">تطبيق أسواق تجريبي</p>
           </div>
 
           <form onSubmit={handleLogin} className="space-y-4">
@@ -102,6 +104,13 @@ const DriverLoginPage = () => {
               {loading ? "جاري الدخول..." : "تسجيل الدخول"}
             </Button>
           </form>
+          <DemoCredentialsCard
+            account="driver"
+            onFill={(e, p) => {
+              setEmail(e);
+              setPassword(p);
+            }}
+          />
         </div>
       </div>
     </div>

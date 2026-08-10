@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import { categorySections, categories } from "@/data/store-data";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useCategories } from "@/hooks/useCategories";
@@ -39,7 +39,7 @@ const HomeSections = () => {
                       loading="lazy"
                       onError={(e) => {
                         e.currentTarget.onerror = null;
-                        e.currentTarget.src = "/placeholder.svg";
+                        e.currentTarget.src = "/placeholder.png";
                       }}
                     />
                   </div>

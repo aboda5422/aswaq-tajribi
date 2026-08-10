@@ -1,4 +1,4 @@
-import Header from "@/components/layout/Header";
+﻿import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { useCategories } from "@/hooks/useCategories";
 import { Link } from "react-router-dom";
@@ -26,7 +26,7 @@ const CategoriesPage = () => {
             {categories?.map((cat) => (
               <Link key={cat.id} to={`/category/${cat.slug}`} className="group block">
                 <div className="aspect-square rounded-2xl overflow-hidden bg-muted/30 hover:shadow-md transition-all">
-                  <img src={cat.image || "/placeholder.svg"} alt={cat.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                  <img src={cat.image || "/placeholder.png"} alt={cat.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
                 </div>
                 <p className="text-center text-xs font-medium mt-1.5 text-foreground leading-tight">{cat.name}</p>
               </Link>

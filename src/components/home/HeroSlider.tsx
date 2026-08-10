@@ -1,4 +1,4 @@
-import { useRef } from "react";
+﻿import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useCategories } from "@/hooks/useCategories";
 import { useNavigate } from "react-router-dom";
@@ -39,7 +39,7 @@ const HeroSlider = () => {
               onClick={() => navigate(`/category/${item.slug}`)}
               className="shrink-0 w-[200px] h-[200px] rounded-2xl overflow-hidden cursor-pointer hover:shadow-md transition-shadow relative"
             >
-              <img src={item.image || "/placeholder.svg"} alt={item.name} className="w-full h-full object-cover" onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = "/placeholder.svg"; }} />
+              <img src={item.image || "/placeholder.png"} alt={item.name} className="w-full h-full object-cover" onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = "/placeholder.png"; }} />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
               <div className="absolute bottom-0 inset-x-0 p-3 text-white">
                 <h3 className="font-heading font-bold text-xs">{item.name}</h3>
