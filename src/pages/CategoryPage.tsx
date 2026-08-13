@@ -35,6 +35,11 @@ const CategoryPage = () => {
       ? (lang === "ar" ? dbCategory.name : (dbCategory.name_en || dbCategory.name))
       : "";
 
+  const sectionId = staticCat?.section || staticCategories.find((c) => c.id === dbCategory?.slug)?.section;
+  const siblingSlugs = new Set(staticCategories.filter((c) => c.section === sectionId).map((c) => c.id));
+  const siblingCats = (dbCategories || []).filter((cat) => siblingSlugs.has(cat.slug));
+  const tabs = siblingCats.length ? siblingCats : dbCategories || [];
+
   const scroll = (dir: "left" | "right") => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({ left: dir === "left" ? -200 : 200, behavior: "smooth" });
@@ -65,8 +70,7 @@ const CategoryPage = () => {
           </Link>
         </div>
 
-        {/* Horizontal scrollable category tabs */}
-        {dbCategories && dbCategories.length > 0 && (
+        {tabs.length > 0 && (
           <div className="relative border-b mb-4">
             <div className="container">
               <button onClick={() => scroll("right")} className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-background/80 backdrop-blur rounded-full shadow flex items-center justify-center hover:bg-muted">
@@ -76,7 +80,7 @@ const CategoryPage = () => {
                 <ChevronLeft className="h-4 w-4" />
               </button>
               <div ref={scrollRef} className="flex gap-1 overflow-x-auto scrollbar-hide py-2 px-8" style={{ scrollbarWidth: "none" }}>
-                {dbCategories.map((cat) => (
+                {tabs.map((cat) => (
                   <Link
                     key={cat.id}
                     to={`/category/${cat.slug}`}

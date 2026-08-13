@@ -25,8 +25,8 @@ const CategoriesPage = () => {
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
             {categories?.map((cat) => (
               <Link key={cat.id} to={`/category/${cat.slug}`} className="group block">
-                <div className="aspect-square rounded-2xl overflow-hidden bg-muted/30 hover:shadow-md transition-all">
-                  <img src={cat.image || "/placeholder.png"} alt={cat.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                <div className="aspect-square rounded-2xl overflow-hidden bg-white hover:shadow-md transition-all border border-border/40">
+                  <img src={cat.image || "/placeholder.png"} alt={cat.name} className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy" />
                 </div>
                 <p className="text-center text-xs font-medium mt-1.5 text-foreground leading-tight">{cat.name}</p>
               </Link>

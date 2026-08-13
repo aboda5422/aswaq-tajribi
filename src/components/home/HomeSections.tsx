@@ -31,11 +31,11 @@ const HomeSections = () => {
                   to={`/category/${cat.id}`}
                   className="group block"
                 >
-                  <div className="aspect-square rounded-2xl overflow-hidden bg-muted/30 hover:shadow-lg transition-all duration-300 relative">
+                  <div className="aspect-square rounded-2xl overflow-hidden bg-white hover:shadow-lg transition-all duration-300 relative border border-border/40">
                     <img
                       src={cat.image}
                       alt={lang === "ar" ? cat.name : cat.nameEn}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                       onError={(e) => {
                         e.currentTarget.onerror = null;
